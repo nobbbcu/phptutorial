@@ -40,7 +40,16 @@ class User extends Authenticatable
     public function post(){
         return $this->hasOne('App\Post');
         // return $this->hasOne('App\Post', 'the_user_id');
-
+    }
+    
+    public function posts(){
+        return $this->hasMany('App\Post');
     }
 
+    public function roles(){
+        return $this->belongsToMany('App\Role')->withPivot('id');
+
+        // To customize tables name and columns follow the format below
+        // return $this->belongsToMany('App\Role', 'user_roles', 'user_id', 'role_id');
+    }
 }

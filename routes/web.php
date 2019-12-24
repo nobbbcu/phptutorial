@@ -20,14 +20,45 @@ use App\User;
 |--------------------------------------------------------------------------
 |*/
 
-// One to One relationship
-Route::get('/post/{id}/user', function($id){
-    return Post::find($id)->user->name;
+Route::get('/user/country', function(){
+
 });
 
-Route::get('/user/{id}/post', function($id){
-    return User::find($id)->post->title;
-});
+// Accessing the pivot table
+// Route::get('user/pivot', function(){
+//     $user = User::find(1);
+//     foreach($user->roles as $role){
+//         return $role->pivot->id;
+//     }
+// });
+
+// Many to Many relationship
+// Route::get('/user/{id}/role', function($id){
+//     $user = User::find($id)->roles()->orderBy('id', 'desc')->get();
+
+//     return $user;
+//     // foreach($user->roles as $role){
+//     //     return $role->name;
+//         // echo $post->title. "<br>";
+//     // }
+// });
+
+// One to Many relationship
+// Route::get('/posts', function(){
+//     $user = User::find(1);
+//     foreach($user->posts as $post){
+//         echo $post->title. "<br>";
+//     }
+// });
+
+// One to One relationship
+// Route::get('/post/{id}/user', function($id){
+//     return Post::find($id)->user->name;
+// });
+
+// Route::get('/user/{id}/post', function($id){
+//     return User::find($id)->post->title;
+// });
 
 /*
 |--------------------------------------------------------------------------
